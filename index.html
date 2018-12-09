@@ -1,0 +1,508 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			
+				<section>
+					<h1>SVG</h1>
+				</section>
+				
+				<section>
+					Scalable Vector Graphics (SVG)<br>is a Web graphics language.<br><br>
+					SVG is an application of XML that makes it possible to represent graphic information in a compact  form.
+				</section>
+				
+				<section>
+					<section>
+						<h2>SVG ADVANTAGES</h2>
+						<ul>
+							<li>Scalable</li>
+							<li>Resolution Independent</li>
+							<li>Can be animated</li>
+							<li>Interactive & styleable</li>
+							<li>possibility to use js/css</li>
+							<li>file is smaller than jpeg/png</li>
+						</ul>
+					</section>
+					<section>
+						It is good to use in adaptive design,<br>because we can scale svg up and down<br>without loss of quality
+						<img src="images/UydAT.png" alt="">
+					</section>
+					<section>
+						However, svg is not very suitable<br>for some highly detailed images
+						<img src="images/horse.png" alt="">
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Creating SVG</h2>
+						Since svg is XML-based format,<br>it may be created in any text editor.<br><br>
+						However it is more convenient to use<br>vector graphic editors (Adobe Illustrator, Xara)<br>or any other which allows to export to *.svg
+					</section>
+					<section>
+						<h2>Text Editor</h2>
+						<ul>
+							<li>Create svg tag</li>
+							<li>Add necessary attributes</li>
+							<li>Create element inside of svg tag</li>
+						</ul>
+						<pre class="xml"><code class="hljs" style="white-space: pre-wrap; word-wrap: normal; font-size: 24px;">
+<svg width="340" height="340">
+	<circle r="65" cx="90" cy="90"
+	stroke="yellow" stroke-width="5" />
+</svg>
+						</code></pre>						
+					</section>
+					<section>
+						<h2>Graphic Editor</h2>
+						When working in visual editor,<br>
+						all you have to do is create image<br>
+						and save it as *.svg file
+					</section>
+				</section>
+				
+				<section>
+					<h2>Styles</h2>
+					SVG shares some properties with CSS<br>
+					and have some unique ones.<br><br>
+					<table style="font-size: 24px;">
+						<thead>
+							<tr>
+								<td style="border-right: 1px solid white; font-weight: bold;">Shared with CSS</td>
+								<td style="font-weight: bold;">SVG Only</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="border-right: 1px solid white;">font, font-family, font-size, font-size-adjust, font-stretch, font-style, font-variant, font-weight, direction, letter-spacing, text-decoration, word-spacing, visibility, text-rendering, writing-mode, clip-path, mask-opacity, filter, pointer-events, image-rendering, clip, color, cursor, display...</td>
+								<td>clip-rule, flood-color, flood-opacity, stop-opacity, kerning, tech-anchor, color-profile, color-rendering, fill, fill-opacity, fill-rule, marker, marker-end, marker-mid, marker-start, stroke, stroke-width, stop-color, lighting-color, enable-background, dominant-baseline, color-interpolation-filters, color-interpolation, glyph-orientation-horizontal...</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				
+				<section>
+					<h2>SVG Shapes</h2>
+					SVG has some predefined shape elements<br>
+<!--<td>
+<pre><code style="white-space: pre-wrap; word-wrap: normal;  font-size: 20px;"><svg width="230" height="140">
+<line x1="220" y1="10" x2="20" y2="130"
+    stroke="violet" stroke-width="5" />
+</svg></code></pre>
+</td>-->			
+					<style>
+						table td {
+							line-height: 1em;
+							vertical-align: top;
+						}
+					</style>
+					<table>
+						<tr>
+							<td>
+								&lt;line&gt;
+							</td>	
+							<td>							
+<svg width="70" height="30"><line x1="5" y1="25" x2="65" y2="5" stroke="violet" stroke-width="5" /></svg>	
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&lt;rect&gt;
+							</td>	
+							<td>							
+<svg width="70" height="40"><rect x="5", y="5" width="40" height="30" style="stroke-width:3; stroke:#0a9590" /></svg>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&lt;circle&gt;
+							</td>	
+							<td>
+<svg width="50" height="50"><circle r="20" cx="25" cy="25" fill="yellowgreen" stroke="green" stroke-width="5" /></svg>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&lt;ellipse&gt;
+							</td>	
+							<td>
+<svg width="70" height="40"><ellipse rx="30" ry="15" cx="35" cy="20" fill="gold" stroke="orange" stroke-width="5" /></svg>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&lt;polyline&gt;
+							</td>	
+							<td>
+<svg width="70" height="40"><polyline points="5,5 15,30 30,5 45,30 60,5" fill="none" stroke="orangered" stroke-width="5" /></svg>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&lt;polygon&gt;
+							</td>	
+							<td>
+<svg width="70" height="40"><polygon points="5,15 15,33 30,37 45,25 40,10 35,5 15,15" fill="turquoise" stroke="lightseagreen" stroke-width="5" /></svg>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align: center;">
+								&lt;path&gt;
+							</td>	
+						</tr>
+					</table>
+				</section>
+				
+				<section>
+					<h2>SVG Text</h2>
+					The &lt;text&gt; element is used to define a text.<br>
+					It's possible to apply a gradient, pattern, clipping path, mask, or filter to &lt;text&gt;<br>
+<pre style="font-size: 0.35em !important;"><code><svg width="350" height="75" viewBox="0 0 350 75"><title>MultiStroke</title><rect x="0" y="0" width="350" height="75" style="fill: #09f"/><g style="overflow:hidden; text-anchor: middle; font-size:45; font-weight: bold; font-family: Impact"><text x="175" y="55" style="fill: white; stroke: #0f9; stroke-width: 14">
+    Stroked Text
+    </text><text x="175" y="55" style="fill: white; stroke: #99f; stroke-width: 8">
+    Stroked Text
+    </text><text x="175" y="55" style="fill: white; stroke: black; stroke-width: 2">
+    Stroked Text
+    </text></g></svg></code></pre>
+
+<svg width="350" height="75" viewBox="0 0 350 75"><title>MultiStroke</title><rect x="0" y="0" width="350" height="75" style="fill: #09f"/><g style="overflow:hidden; text-anchor: middle; font-size:45; font-weight: bold; font-family: Impact"><text x="175" y="55" style="fill: white; stroke: #0f9; stroke-width: 14">
+    Stroked Text
+    </text><text x="175" y="55" style="fill: white; stroke: #99f; stroke-width: 8">
+    Stroked Text
+    </text><text x="175" y="55" style="fill: white; stroke: black; stroke-width: 2">
+    Stroked Text
+    </text></g></svg>
+				</section>
+				
+				<section>
+					<h2>Groups</h2>
+					The &lt;g&gt;  is a container used to group other SVG elements.
+					Transformations applied to the &lt;g&gt; element are performed
+					on all of its child elements, and any of its attributes
+					are inherited by its child elements.
+					<div style="display: flex; flex-direction: row;">
+						<div style="width: 70%;">
+<pre style="font-size: 0.35em !important;"><code><svg width="250" height="210">
+    <g fill="red">
+      <ellipse rx="45" ry="37" cx="55" cy="60" transform="rotate(-45, 55, 55)"/>
+      <ellipse rx="45" ry="37" cx="190" cy="60" transform="rotate(45, 190, 55)"/>
+      <circle r="67" cx="122" cy="125"/>
+     </g>
+</svg></code></pre>
+						</div>
+						<div style="width: 30%;">
+<svg width="250" height="210">
+ <g fill="red">
+      <ellipse rx="45" ry="37" cx="55" cy="60" transform="rotate(-45, 55, 55)"/>
+      <ellipse rx="45" ry="37" cx="190" cy="60" transform="rotate(45, 190, 55)"/>
+      <circle r="67" cx="122" cy="125"/>
+     </g>
+</svg>
+						</div>
+					</div>
+				</section>
+				
+				<section>
+					<section>
+						<h2>&lt;defs&gt;</h2>
+						This tag is used to store parts that will be used at a later time. 
+						Objects created inside a &lt;defs&gt; are not rendered directly.
+						<pre style="font-size: 0.35em !important;"><code><svg width="500.79px" height="200px" viewBox="0 0 500.79 200">
+	<style type="text/css">
+		#leaves{fill:#8CC63F;}
+		#bark{fill:#A27729;}
+	</style>
+	<defs>
+		<g id="tree">
+			<!-- ... -->
+		</g>
+	</defs>
+</svg></code></pre>
+					</section>
+					
+					<section>
+						<h2>&lt;use&gt;</h2>
+						You can use objects stored in &lt;defs&gt; with this tag. You need to indicate svg id or path to the source file.
+						<img src="images/trees.png" alt="" style="width: 50%">						
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Filters</h2>
+						Filters are used to alter image.<br><br>
+						<ul>
+							<li>&lt;feBlend&gt; - filter for combining images</li>
+							<li>&lt;feColorMatrix&gt; - filter for color transformations</li>
+							<li>&lt;feOffset&gt; - filter for drop shadows</li>
+							<li>&lt;feSpotLight&gt; - filter for lighting</li>
+							<li>&lt;feGaussianBlur&gt; - blur filter</li>
+							<li>&lt;feMerge&gt; - filter to control other filters</li>
+							<li>...and many others</li>
+						</ul>
+					</section>
+					<section>
+						For example, the &lt;feGaussianBlur&gt; element<br>is used to create blur effects:<br>
+						<img src="images/blur.jpg" alt="" style="width: 40%">	
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Gradients</h2>
+						Gradient properties are set within a &lt;linearGradient&gt; element. It should be stored within the &lt;defs&gt; tag.<br>
+						<pre style="font-size: 0.35em !important;"><code><svg><!-- Градиент -->
+<linearGradient id="linear-gradient">
+	<stop offset="0%" stop-color="gold"/>
+    <stop offset="50%" stop-color="violet"/>
+    <stop offset="100%" stop-color="teal"/>
+</linearGradient>
+
+  <!-- Фигура с градиентной заливкой -->
+<rect fill="url(#linear-gradient)"
+    width="100%" height="100%"/>
+</svg></code></pre>
+
+<svg>
+<linearGradient id="linear-gradient">
+	<stop offset="0%" stop-color="gold"/>
+    <stop offset="50%" stop-color="violet"/>
+    <stop offset="100%" stop-color="teal"/>
+</linearGradient>
+<rect fill="url(#linear-gradient)"
+    width="100%" height="100%"/>
+</svg>
+
+					</section>
+					<section>
+						Linear gradients can be defined as horizontal, vertical or angular gradients<br><br>
+						It may be applied to any difficult shape, which use fill property<br><br>
+						<img src="images/gradient.png" alt="">	
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Patterns</h2>The SVG &lt;pattern&gt; element allows to define patterns inside of SVG and use those patterns as a fill.<br>
+						<img src="images/patt1.png" alt="" style="width: 40%">	
+						<img src="images/patt2.png" alt="" style="width: 40%">	
+						<img src="images/patt3.png" alt="" style="width: 40%">	
+
+					</section>
+					<section>
+					The basic process for patterns goes something like:
+						<ul>
+							<li>Define a &lt;pattern&gt; inside of the SVG</li>
+							<li>Define the shapes inside of the pattern</li>
+							<li>Use the shapes</li>
+							<li>Create a new shape and fill it with the pattern</li>
+						</ul>
+						<pre style="font-size: 0.35em !important;"><code><svg width="100%" height="120px">
+<pattern id="pattern-circles" x="0" y="0"
+     width="40" height="40" patternUnits="userSpaceOnUse">
+	<circle  cx="20" cy="20" r="20" fill="yellow"/>
+	</pattern>
+	<rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)" />
+</svg></code></pre>
+<svg width="100%" height="120px">
+<pattern id="pattern-circles" x="0" y="0"
+     width="40" height="40" patternUnits="userSpaceOnUse">
+	<circle  cx="20" cy="20" r="20" fill="yellow"/>
+	</pattern>
+	<rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)" />
+</svg>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Transformations</h2>
+						The transform attribute defines a list of transform definitions that are applied to an element and the element's children.<br>
+						<span style="font-size: 0.4em !important; color: grey;">* Note that transform is not a tag, but an attribute</span><br>
+						Multiple declarations are available:<br>
+						
+						<div style="display: flex; flex-direction: row;">
+							<div style="width: 80%;">
+							<pre style="font-size: 0.25em !important;"><code><g fill="grey"
+     transform="rotate(-10)
+                translate(-5)
+                skewX(40)
+                scale(1 0.5)">
+    <rect x="15", y="15" width="70" height="120" style="stroke-width:3; stroke:#0a9590" />
+</g>
+						</code></pre>
+							</div>
+							<div style="width: 20%;">
+<svg  width="100%" height="100%>
+<g fill="grey"
+     transform="rotate(-10)
+                translate(-5)
+                skewX(40)
+                scale(1 0.5)">
+    <rect x="15", y="15" width="70" height="120" style="stroke-width:3; stroke:#0a9590" />
+</g>
+</svg>
+							</div>
+						</div>
+					</section>
+					<section>
+						CSS transforms also may be applied,<br>
+						it works mostly the same way as with html elements*<br>
+						<span style="font-size: 0.4em !important; color: grey;">* except IE</br>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Animation</h2>
+						The animate tag is put inside a shape element and defines how an attribute of an element changes over the animation.<br>
+						<pre style="font-size: 0.30em !important;"><code><rect x="10" y="10" width="100" height="100" fill="orange">
+    <animate attributeType="XML" attributeName="x" from="-100" to="120"
+        dur="3s" repeatCount="indefinite"/>
+</rect></code></pre>
+<svg width="100%" height="120" viewBox="0 0 120 120" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+  
+  <rect x="10" y="10" width="100" height="100" fill="orange">
+    <animate attributeType="XML" attributeName="x" from="-100" to="120"
+        dur="3s" repeatCount="indefinite"/>
+  </rect>
+</svg>
+					</section>
+					<section>
+						&lt;animateMotion&gt; tag allows to set motion along the selected path<br>
+						<pre style="font-size: 0.30em !important;"><code><path id="theMotionPath" stroke="lightgrey" stroke-width="2" fill="none" 
+        d="M10,110 A120,120 -45 0,1 110 10 A120,120 -45 0,1 10,110"></path>
+
+	<circle cx="" cy="" r="5" fill="red">
+
+    <animateMotion dur="6s" repeatCount="indefinite">
+      <mpath xlink:href="#theMotionPath"/>
+    </animateMotion>
+</circle></code></pre>
+						
+						<?xml version="1.0"?>
+<svg width="120" height="120" viewBox="0 0 120 120"
+    xmlns="http://www.w3.org/2000/svg" version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+	<path id="theMotionPath" stroke="lightgrey" stroke-width="2" fill="none" 
+        d="M10,110 A120,120 -45 0,1 110 10 A120,120 -45 0,1 10,110" />
+
+	<circle cx="" cy="" r="5" fill="red">
+
+    <animateMotion dur="6s" repeatCount="indefinite">
+      <mpath xlink:href="#theMotionPath"/>
+    </animateMotion>
+	</circle>
+</svg>
+						
+					</section>
+					<section>
+						&lt;animateTransform&gt; changes a transformation attribute on a target element, allowing to control translation, scaling, rotation and/or skewing<br>
+						
+						<pre style="font-size: 0.30em !important;"><code><polygon points="60,30 90,90 30,90" fill="green">
+    <animateTransform attributeName="transform"
+                      attributeType="XML"
+                      type="rotate"
+                      from="0 60 70"
+                      to="360 60 70"
+                      dur="10s"
+                      repeatCount="indefinite"/>
+    </polygon></code></pre>
+						
+						<svg width="120" height="120"  viewBox="0 0 120 120"  fill="green">
+
+    <polygon points="60,30 90,90 30,90">
+        <animateTransform attributeName="transform"
+                          attributeType="XML"
+                          type="rotate"
+                          from="0 60 70"
+                          to="360 60 70"
+                          dur="10s"
+                          repeatCount="indefinite"/>
+    </polygon>
+</svg>
+					</section>
+					<section>
+						SVG animation allows interactions, using mouse events such as click, mouseIn, mouseOut, mouseOver etc.<br>
+						
+						<pre style="font-size: 0.30em !important;"><code>
+<rect x="10" y="10" width="100" height="110" fill="yellow">
+    <animate attributeName="x" begin="go.click" dur="2s" from="10" to="300" fill="freeze" />
+</rect>
+
+<button id="go">Go</button>
+</code></pre>
+						
+<svg width="600px" height="100px">
+	<rect x="10" y="10" width="100" height="100" fill="yellow">
+		<animate attributeName="x" begin="go.click" dur="2s" from="10" to="300" fill="freeze" />
+	</rect>
+</svg>
+<br>
+<button id="go">Go</button>
+					</section>
+					
+					<section>
+					CSS animations also may be applied,<br>
+						it works mostly the same way as with html elements<br>
+					</section>
+					
+				</section>
+				
+				<section>
+					<h2>SVG can be used for:</h2>
+					<ul>
+						<li>ICONS</li>
+						<li>BANNERS</li>
+						<li>INFOGRAPHICS</li>
+						<li>ANIMATED ILLUSTRATION</li>
+						<li>FILTER EFFECTS</li>
+					</ul>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
